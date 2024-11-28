@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container text-center" style="margin-top: 20px; position: relative; min-height: 100vh;">
+    <!-- Top Section -->
+    <div id="top-section" style="padding: 20px 0;">
+        <h1 class="text-center">Upcoming Events</h1>
+        <hr style="width: 80%; max-width: 800px; margin: 10px auto;">
+        {% if user.is_authenticated %}
+            <button class="btn btn-primary" onclick="toggleEventForm()">+ Create Event</button>
+            <p style="margin-top: 10px;">Please be respectful in comments :&gt;</p>
+        {% else %}
+            <p style="margin-top: 10px; font-size: 1.2rem;">Log in to create or comment on events.</p>
+        {% endif %}
+    </div>
+
+  <!-- Event Creation Form -->
+  {% if user.is_authenticated %}
+  <div id="event-creation-form" 
+      class="card p-4 my-4 mx-auto" 
+      style="
+          display: none; 
+          max-width: 600px; 
+          margin-top: 40px; 
+          background-color: #f9f9f9; 
+          border: 2px solid #3498db; 
+          border-radius: 10px; 
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+          text-align: center;">
+      <h2 class="text-center mb-4">Create an Event</h2>
+      <form method="POST" action="{% url 'create_event' %}" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="mb-3">
+              <label for="event-image" class="form-label">Upload Image (PNG, JPEG, GIF only):</label>
+              <input type="file" name="image" accept=".png, .jpeg, .jpg, .gif" class="form-control" required>
+          </div>
+          <div class="mb-3">
+              <label for="event-description" class="form-label">Description:</label>
+              <textarea name="description" rows="4" class="form-control" placeholder="Write event description..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-success w-100">Submit</button>
+      </form>
+  </div>
+  {% endif %}
+  
+    <div style="margin-bottom: 40px;"></div> <!-- Added margin space between "Create an Event" and "Event Posts" -->
+
+    <!-- Event Posts -->
+    <div id="event-posts" class="d-flex flex-column align-items-center justify-content-center mt-4" style="width: 100%;">
+        {% if events %}
+            {% for event in events %}
+                <div class="card shadow-lg p-3 mb-5 event-card" style="max-width: 700px; width: 100%; background: rgba(255, 255, 255, 0.95); border-radius: 25px; margin: 0 auto 40px auto;">
+                    <img src="{{ event.image.url }}" alt="Event Image" class="card-img-top rounded" style="max-height: 300px; object-fit: cover; border-radius: 20px;">
+                    <div class="card-body text-center">
+                        <p class="card-text">{{ event.description }}</p>
+                        <small class="text-muted">Created on {{ event.created_at|date:"M d, Y, h:i A" }}</small>
+
+                        <!-- Delete Post Button (Only for owners or admins) -->
+                        {% if user.is_authenticated %}
+                            {% if user.is_superuser %}
+                                <form method="POST" action="{% url 'delete_event' event.id %}" class="mt-2">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-danger btn-sm">Delete Post</button>
+                                </form>
+                            {% elif user == event.owner %}
+                                <form method="POST" action="{% url 'delete_event' event.id %}" class="mt-2">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-danger btn-sm">Delete Post</button>
+                                </form>
+                            {% endif %}
+                        {% endif %}
+<!-- Add Comments Section -->
+{% if user.is_authenticated %}
+<form method="POST" action="{% url 'add_comment' event.id %}" class="mt-2">
+    {% csrf_token %}
+    <textarea name="text" rows="2" class="form-control mb-2" placeholder="Add a comment..." required></textarea>
+    <button type="submit" class="btn btn-secondary btn-sm">Add Comment</button>
+</form>
+{% endif %}
+
+
+                        <!-- Display Comments -->
+                        <div class="comments mt-3">
+                            {% for comment in event.comments.all %}
+                                <div class="card mt-3 p-2" style="background: rgba(240, 240, 240, 0.9); border-radius: 15px;">
+                                    <p>{{ comment.text }}</p>
+                                    <small class="text-muted">Posted on {{ comment.created_at|date:"M d, Y, h:i A" }}</small>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No events posted yet.</p>
+        {% endif %}
+    </div>
+</div>
+
+<footer style="background-color: #f2f5f7; padding: 30px; text-align: center; margin-top: 20px; border-top: 2px solid #ff6347;">
+    <p style="color: #555; font-size: 1.5rem; margin: 0;">&copy; 2024 EventWizard. All rights reserved.</p>
+    <p style="color: #777; font-size: 1.1rem;">Making unforgettable events happen.</p>
+</footer>
+
+<!-- JavaScript for Collapsible Form -->
+<script>
+    function toggleEventForm() {
+        const form = document.getElementById('event-creation-form');
+        if (form.style.display === 'none' || form.style.display === '') {
+            form.style.display = 'block';
+        } else {
+            form.style.display = 'none';
+        }
+    }
+</script>
+{% endblock %}

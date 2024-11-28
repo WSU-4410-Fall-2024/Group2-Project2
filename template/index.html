@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+<div class="container text-center" style="margin-top: 20px;">
+    <div class="banner-wrapper" style="overflow: hidden; border-radius: 15px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);">
+        <img src="{% static 'images/homepg.jpg' %}" alt="Event Image" style="width: 100%; height: auto; max-height: 600px; transition: transform 0.5s ease;">
+    </div>
+</div>
+
+
+<footer style="background-color: #f2f5f7; padding: 30px; text-align: center; margin-top: 20px; border-top: 2px solid #ff6347;">
+    <p style="color: #555; font-size: 1.5rem; margin: 0;">&copy; 2024 EventWizard. All rights reserved.</p>
+    <p style="color: #777; font-size: 1.1rem;">Making unforgettable events happen.</p>
+</footer>
+
+<style>
+    .banner-wrapper:hover img {
+        transform: scale(1.05); 
+    }
+
+    footer p {
+        margin: 5px 0; 
+    }
+</style>
+
+{% endblock %}
+
+

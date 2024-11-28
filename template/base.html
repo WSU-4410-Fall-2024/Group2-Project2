@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    
+    <!-- CDNs -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+        <!-- background: linear-gradient(120deg, #fbc2eb, #a6c1ee); -->
+    <style>
+        body {
+            background-color: #f8f9fa; 
+           
+            background: linear-gradient(120deg, #ecb87e, #444545);
+            
+            font-family: Arial, sans-serif; 
+        }
+
+        .navbar {
+            background-color: #343a40; 
+            border: none; 
+            border-radius: 0; 
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+        }
+
+        .nav li a {
+            color: #ff6347; 
+            font-size: 20px;
+            transition: color 0.3s ease; 
+        }
+
+        .nav li a:hover {
+            color: #ffc107; 
+        }
+
+        .navbar-brand {
+            color: #ff6347; 
+            font-size: 25px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            transition: color 0.3s ease; 
+        }
+
+        .navbar-brand:hover {
+            color: #ffc107; 
+        }
+
+        .navbar-nav > li > a {
+            padding: 15px 20px; 
+        }
+
+        /* Responsive styling for smaller screens */
+        @media (max-width: 768px) {
+            .nav li a {
+                font-size: 18px; 
+            }
+
+            .navbar-brand {
+                font-size: 22px; 
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar start -->
+    <nav class="navbar navbar-bg-light">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Northfield Hills</a>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="{% url 'about' %}">About Us</a></li>
+
+                <li><a href="{% url 'events' %}">Events</a></li>
+                <li><a href="{% url 'reservations' %}">Reservation</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'logout' %}">
+                        <span class="glyphicon glyphicon-log-out"></span> {{ user.username }} 
+                    </a></li>
+                {% else %}
+                    <li><a href="{% url 'register' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Content Block -->
+    {% block content %}
+    {% endblock %}
+    
+</body>
+</html>
+

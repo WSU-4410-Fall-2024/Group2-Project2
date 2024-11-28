@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Reserve Your Venue
+{% endblock %}
+
+{% block content %}
+<div class="container p-4 text-center">
+    <!-- Booking Form -->
+    <div class="booking-form-wrapper" style="max-width: 10000px; margin: 0 auto; background: #f2f5f7; padding: 20px; border-radius: 15px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);">
+        <h1 style="color: #3498db; font-weight: bold; font-size: 2.5rem; margin-bottom: 20px;">Reserve our Banquet hall</h1>
+        <div class="venue-image">
+            <img src="{% static 'images/hall.jpg' %}" alt="Banquet Hall" style="max-width: 100%; height: auto; border-radius: 10px; margin-bottom: 20px;">
+        </div>
+        <p style="color: #555; font-size: 1.2rem; margin-bottom: 20px;">Book the banquet hall for a single day. Select your date below.</p>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="form-group mb-3">
+                <label for="cus_name" class="form-label" style="font-weight: bold; color: #333;">Name:</label>
+                <input type="text" id="cus_name" name="cus_name" class="form-control" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group mb-3">
+                <label for="cus_ph" class="form-label" style="font-weight: bold; color: #333;">Callback Number:</label>
+                <input type="text" id="cus_ph" name="cus_ph" class="form-control" placeholder="Enter your phone number" required>
+            </div>
+            <div class="form-group mb-3">
+                <label for="email" class="form-label" style="font-weight: bold; color: #333;">Email Address:</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group mb-3">
+                <label for="details" class="form-label" style="font-weight: bold; color: #333;">Details:</label>
+                <textarea id="details" name="details" class="form-control" rows="4" placeholder="Enter a brief description"></textarea>
+            </div>
+            <div class="form-group mb-3">
+                <label for="booking_date" class="form-label" style="font-weight: bold; color: #333;">Booking Date:</label>
+                <input type="date" id="booking_date" name="booking_date" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-lg btn-primary" style="background-color: #3498db; color: white; padding: 10px 30px; border: none; border-radius: 10px; font-size: 1.2rem; cursor: pointer; transition: background-color 0.3s ease;">
+                Book Now
+            </button>
+        </form>
+    </div>
+</div>
+
+
+<footer style="background-color: #f2f5f7; padding: 30px; text-align: center; margin-top: 20px; border-top: 2px solid #ff6347;">
+    <p style="color: #555; font-size: 1.5rem; margin: 0;">&copy; 2024 EventWizard. All rights reserved.</p>
+    <p style="color: #777; font-size: 1.1rem;">Making unforgettable events happen.</p>
+</footer>
+
+<style>
+    /* Mobile-first responsive design */
+    @media only screen and (max-width: 768px) {
+        .booking-form-wrapper {
+            padding: 15px;
+            font-size: 0.9rem;
+        }
+
+        .booking-form-wrapper h1 {
+            font-size: 2rem;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            font-size: 1rem;
+        }
+
+        .venue-image img {
+            margin-bottom: 10px;
+        }
+    }
+
+    .form-group input, .form-group textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        margin-top: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .form-group input:focus, .form-group textarea:focus {
+        border-color: #3498db;
+        outline: none;
+        transform: scale(1.02);
+    }
+
+    /* Button hover effect */
+    .btn:hover {
+        background-color: #2980b9;
+        transform: scale(1.05);
+    }
+
+    /* Zoom effect on form hover */
+    .booking-form-wrapper:hover {
+        transform: scale(1.02);
+    }
+</style>
+{% endblock %}

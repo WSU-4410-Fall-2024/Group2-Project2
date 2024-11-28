@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .terms-image {
+    width: 85%; /* Set to larger value to make it bigger relative to container width */
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+        .container {
+            max-width: 10000px;
+            margin: 50px auto;
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        h1 {
+            color: #ff6347;
+            font-weight: bold;
+            font-size: 2.5rem; 
+            margin-bottom: 20px;
+            letter-spacing: 1.3px;
+            transition: transform 0.3s ease;
+        }
+        p {
+            color: #555;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            line-height: 1.7;
+            text-align: justify;
+        }
+        .about-section {
+            margin-bottom: 35px;
+            transition: transform 0.3s ease;
+        }
+        .about-section:hover {
+            transform: scale(1.03);
+        }
+        .terms-btn {
+            padding: 10px 30px;
+            background-color: #ff4757;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .terms-btn:hover {
+            background-color: #e84142;
+            transform: translateY(-4px);
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            margin-top: 60px;
+            font-size: 15px;
+        }
+
+        /* Collapsible section */
+        .collapsible {
+            background-color: #ff7f50;
+            color: white;
+            cursor: pointer;
+            padding: 14px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            text-align: left;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            outline: none;
+            transition: background-color 0.3s ease;
+        }
+        .collapsible:hover {
+            background-color: #ff6347;
+        }
+        .collapsible:after {
+            content: '\002B'; /* Plus symbol */
+            float: right;
+            font-weight: bold;
+        }
+        .collapsible.active:after {
+            content: "\2212"; /* Minus symbol */
+        }
+        .content {
+            padding: 0 18px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+            background-color: white;
+            margin-top: 10px;
+            border: 1px solid #ff7f50;
+            border-radius: 5px;
+        }
+        .content p {
+            margin: 15px 0;
+            color: #333;
+            font-size: 1.2rem; /* Consistent paragraph size */
+            text-align: justify;
+        }
+        .terms-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <h1>Welcome to Northfield Hills Condominium Association</h1>
+    <div class="about-section">
+        <p></p>
+    </div>
+    <div class="about-section">
+        <p style="font-size: large;">At Northfield Hills, we are dedicated to fostering a vibrant and engaged community. On our website, you can book facilities, stay informed about upcoming events, and access important resources. With its focus on a family-friendly environment, preventative maintenance program, superb amenities, scheduled replacements and improvements, and a dedicated forward-thinking Board of Directors, Northfield Hills has sustained its reputation as a “great place to live” through the years.</p>
+    </div>
+
+    <!-- Image above the Terms and Conditions -->
+    <img src="{% static 'images/condo.jpg' %}" alt="Terms and Conditions" class="terms-image">
+
+    <!-- Collapsible section for Terms and Conditions -->
+    <button class="collapsible">Terms and Conditions</button>
+    <div class="content">
+        <p>
+            By using Northfield Hills' services, you agree to the following terms and conditions. All bookings are subject to availability and confirmation. We are not responsible for unforeseen circumstances but will do our best to assist. Payments should be made as scheduled, and cancellation policies apply. Ensure accurate guest information to avoid issues.
+        </p>
+        <p>
+            We reserve the right to update these terms as needed, and continued use of our services implies acceptance of any modifications. For more detailed policies, contact our support team.
+            Email: Hg5590@Wayne.edu Phone: (734)-612-9351
+        </p>
+    </div>
+</div>
+
+<footer>
+    Crafted with 🤍 for unforgettable events.
+    <p style="color: #923514; font-size: 1.1rem; text-align: center;">&copy; 2024 EventWizard. All rights reserved.</p>
+</footer>
+
+<!-- Script for Collapsible Section -->
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    for (var i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        });
+    }
+</script>
+{% endblock %}

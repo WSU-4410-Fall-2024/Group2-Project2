@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="register-form">
+        <h2 class="form-title">Sign Up</h2>
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="user-details">
+                <div class="input-box">
+                    <label for="username">User Name:</label>
+                    <input type="text" name="username" id="username" required>
+                </div>
+                <div class="input-box">
+                    <label for="email">E-Mail ID:</label>
+                    <input type="email" name="email" id="email" required>
+                </div>
+                <div class="input-box">
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" id="password" required>
+                </div>
+                <div class="input-box">
+                    <label for="confirmpassword">Confirm Password:</label>
+                    <input type="password" name="confirmpassword" id="confirmpassword" required>
+                </div>
+            </div>
+            <div class="button">
+                <input type="submit" name="submit" value="Sign Up">
+            </div>
+        </form>
+        <p class="form-text">
+            Already have an account? <a href="{% url 'login' %}">Log In</a>
+        </p>
+    </div>
+</div>
+
+<style>
+    .container {
+        max-width: 500px;
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-title {
+        color: #ff6347;
+        font-size: 2rem;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .input-box {
+        margin-bottom: 20px;
+    }
+
+    .input-box label {
+        font-size: 1.1rem;
+        color: #333;
+    }
+
+    .input-box input {
+        width: 100%;
+        padding: 10px;
+        font-size: 1.1rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin-top: 5px;
+    }
+
+    .button {
+        text-align: center;
+    }
+
+    .button input {
+        width: 100%;
+        padding: 10px;
+        background-color: #ff6347;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        font-size: 1.1rem;
+    }
+
+    .button input:hover {
+        background-color: #e84142;
+    }
+
+    .form-text {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .form-text a {
+        color: #ff6347;
+        text-decoration: none;
+    }
+
+    .form-text a:hover {
+        color: #e84142;
+        text-decoration: underline;
+    }
+</style>
+
+{% endblock %}
