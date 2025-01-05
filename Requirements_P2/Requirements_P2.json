@@ -1,0 +1,202 @@
+{
+    "9632240831019954193": [
+        "10/20/24",
+        "Management",
+        "COR",
+        "Tamanna Gaur",
+        "Activity Plan",
+        "need to exemplify",
+        "me",
+        "tamanna 10/21/24"
+    ],
+    "9369642678060673853": [
+        "10/15/24",
+        "Inception",
+        "CORE",
+        "Tamanna Gaur",
+        "Homepage Layout",
+        "Establish a welcoming and user-friendly entry point.",
+        "end user",
+        "Tamanna Gaur-10/15/24"
+    ],
+    "4117453410917170258": [
+        "10/20/24",
+        "Elaboration",
+        "CORE",
+        "Tamanna Gaur",
+        "Visual vision",
+        "Provide a visually engaging banner with a tagline to highlight community values.",
+        "Tamanna Gaur",
+        "Tamanna Gaur-10/20/24"
+    ],
+    "6947232674360596783": [
+        "10/20/24",
+        "Specification",
+        "CORE",
+        "Tamanna Gaur",
+        "Event Page",
+        "Showcase upcoming events with details and images.",
+        "End users",
+        "Tamanna Gaur"
+    ],
+    "1116540831200573645": [
+        "10/21/24",
+        "Validation",
+        "NER",
+        "Tamanna Gaur",
+        "Quick links navigation",
+        "Provide easy access to popular sections like bookings and events.",
+        "End users",
+        "Tamanna Gaur-10/21/24"
+    ],
+    "5534320636294568761": [
+        "10/25/24",
+        "Management",
+        "CORE",
+        "Tamanna Gaur",
+        "Footer Design",
+        "Display contact information, social media links.",
+        "End users",
+        "Tamanna Gaur-10/25/24"
+    ],
+    "1734012319809466197": [
+        "10/25/24",
+        "Inception",
+        "CORE",
+        "Tamanna Gaur",
+        "Sign up page",
+        "Allow users to create accounts for personalized services.",
+        "End users",
+        "Tamanna Gaur-10/25/24"
+    ],
+    "4648669513306301143": [
+        "10/30/24",
+        "Elaboration",
+        "NER",
+        "Tamanna Gaur",
+        "Email verification Process",
+        "Ensure secure registration by verifying email addresses.",
+        "End users",
+        "Tamanna Gaur-10/30/24"
+    ],
+    "6621460138872909271": [
+        "11/01/24",
+        "Specification",
+        "CORE",
+        "Tamannna Gaur",
+        "Log-In Page",
+        "Enable existing users to access their accounts securely.",
+        "End users",
+        "Tamanna Gaur-11/01/24"
+    ],
+    "7372160052483303615": [
+        "11/08/24",
+        "Negotiation",
+        "NER",
+        "Tamanna Gaur",
+        "Password Recovory System",
+        "Provide a way for users to reset forgotten passwords.",
+        "end users",
+        "Tamanna Gaur-11/08/24"
+    ],
+    "1066617136723144276": [
+        "11/10/24",
+        "Validation",
+        "CORE",
+        "Bookings design page",
+        "Tamanna Gaur",
+        "Offer clear navigation for hall and tennis court bookings.",
+        "end users",
+        "Tamanna Gaur"
+    ],
+    "4343544675464526182": [
+        "11/11/24",
+        "Management",
+        "CORE",
+        "Tamanna Gaur",
+        "Hall booking form",
+        "Collect user details like name, email, and address for bookings.",
+        "End users",
+        "Tamanna Gaur-11/11/24"
+    ],
+    "9320331885540462719": [
+        "11/13/24",
+        "Elicitation",
+        "Tennis court booking form",
+        "Tamanna Gaur",
+        "NER",
+        "Allow users to reserve time slots for tennis court usage.",
+        "End users",
+        "Tamanna Gaur-11/13/24"
+    ],
+    "5371973195937940556": [
+        "11/15/24",
+        "Specification",
+        "CORE",
+        "Tamanna Gaur",
+        "Calender for availability",
+        "Highlight available and unavailable dates for bookings.",
+        "end users",
+        "Tamanna Gaur-11/15/24"
+    ],
+    "5712326596775122333": [
+        "11/15/24",
+        "Specification",
+        "NER",
+        "Tamanna Gaur",
+        "Time slot selection",
+        "Allow users to select specific time slots for tennis court bookings.",
+        "end users",
+        "Tamanna Gaur"
+    ],
+    "1321756853781116499": [
+        "11/15/24",
+        "Management",
+        "CORE",
+        "Tamanna Gaur",
+        "Booking confirmation page",
+        "Summarize booking details and finalize reservations.",
+        "end users",
+        "Tamanna Gaur-11/15/24"
+    ],
+    "9350992856343955781": [
+        "11/15/24",
+        "Negotiation",
+        "NER",
+        "Tamanna Gaur",
+        "Email notifications",
+        "Send confirmation emails for bookings and sign-ups.",
+        "End users",
+        "Tamanna Gaur-11/15/24"
+    ],
+    "1481641866626253826": [
+        "11/16/24",
+        "Elaboration",
+        "CORE",
+        "Tamanna Gaur",
+        "Reminder Emails",
+        "Notify users about upcoming bookings automatically.",
+        "end users",
+        "Tamanna Gaur"
+    ],
+    "7399572420046769389": [
+        "11/16/24",
+        "Elaboration",
+        "CORE",
+        "Tamanna Gaur",
+        "Contact us page",
+        "Provide users with a form to send inquiries, including fields for name, email, phone number, and message, along with displayed contact details.",
+        "End users",
+        "Tamanna Gaur"
+    ],
+    "9506580837746160805": [
+        "11/16/24",
+        "Elaboration",
+        "CORE",
+        "Tamanna Gaur",
+        "Contact us page",
+        "Provide users with a form to send inquiries, including fields for name, email, phone number, and message, along with displayed contact details.",
+        "end users",
+        "Tamanna Gaur-11/16/24"
+    ]
+}
